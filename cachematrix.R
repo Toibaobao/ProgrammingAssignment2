@@ -7,17 +7,17 @@
 ## This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+	m <- NULL
         set <- function(y) {
-        	x <<- y
-            m <<- NULL
+		x <<- y
+		m <<- NULL
         }
         get <- function() x
         setInvMatrix <- function(inv) m <<- inv
         getInvMatrix <- function() m
         list(set = set, get = get,
-            setInvMatrix = setInvMatrix,
-            getInvMatrix = getInvMatrix)
+		setInvMatrix = setInvMatrix,
+		getInvMatrix = getInvMatrix)
 }
 
 
@@ -29,7 +29,7 @@ cacheSolve <- function(x, ...) {
         m <- x$getInvMatrix()
         if(!is.null(m)) {
 		message("Getting cached data...")
-            return(m)
+		return(m)
         }
         data <- x$get()
         m <- inv(data, ...)
